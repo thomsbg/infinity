@@ -4,7 +4,7 @@
 //     license. For all licensing information, details, and documentation:
 //     http://airbnb.github.com/infinity
 
-!function(window, Math, $) {
+!(function(window, Math, $) {
   'use strict';
 
 
@@ -220,7 +220,7 @@
       // loop through all page items and update the top/bottom values
       updateItemPosition(page.items, positionChange);
     }
-  };
+  }
 
   // ### updateItemPosition
   //
@@ -241,7 +241,7 @@
       item.top += positionChange;
       item.bottom += positionChange;
     }
-  };
+  }
 
   // ### cacheCoordsFor
   //
@@ -904,7 +904,7 @@
       }
     }
 
-    if(foundIndex == null) return false;
+    if(foundIndex === null) return false;
 
     items.splice(foundIndex, 1);
     page.bottom -= item.height;
@@ -1056,4 +1056,4 @@
     return infinity;
   };
 
-}(window, Math, jQuery);
+})(window, Math, jQuery);
