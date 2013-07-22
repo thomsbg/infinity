@@ -9,10 +9,10 @@ build-js:
 	@./node_modules/.bin/uglifyjs -o ./build/infinity.min.js infinity.js
 	@gzip -c ./build/infinity.min.js > ./build/infinity.min.js.gz
 
-build-test:
+build-test: build-js
 	@coffee -c test/
 
-annotate:
-	@./node_modules/.bin/docco infinity.js
+annotate: build-js
+	@./node_modules/.bin/docco ./build/infinity.js
 
 .PHONY: build annotate
