@@ -1,20 +1,3 @@
-;(function(e,t,n){function i(n,s){if(!t[n]){if(!e[n]){var o=typeof require=="function"&&require;if(!s&&o)return o(n,!0);if(r)return r(n,!0);throw new Error("Cannot find module '"+n+"'")}var u=t[n]={exports:{}};e[n][0].call(u.exports,function(t){var r=e[n][1][t];return i(r?r:t)},u,u.exports)}return t[n].exports}var r=typeof require=="function"&&require;for(var s=0;s<n.length;s++)i(n[s]);return i})({1:[function(require,module,exports){
-(function(){(function(global) {
-  var oldInfinity = global.infinity;
-  var infinity = global.infinity = {};
-
-  infinity.ListItem = require('./list_item');
-  // infinity.Page = require('./page');
-  infinity.List = require('./list');
-
-  infinity.noConflict = function() {
-    global.infinity = oldInfinity;
-    return infinity;
-  };
-})(this);
-
-})()
-},{"./list":2,"./list_item":3}],2:[function(require,module,exports){
 (function($) {
   var $window = $(window);
   var ListItem = require('./list_item');
@@ -208,25 +191,3 @@
 
   module.exports = List;
 })(jQuery);
-
-},{"./list_item":3}],3:[function(require,module,exports){
-(function($) {
-  var ListItem = function(el) {
-    this.$el = el instanceof $ ? el : $(el);
-    this.top = 0;
-    this.height = computeHeight(this.$el);
-  };
-
-  var $offscreen = $('<div>').css({ position: 'absolute', right: '-1000px' }).appendTo('body');
-
-  function computeHeight($el) {
-    var height = $el.appendTo($offscreen).outerHeight(true);
-    $el.detach();
-    return height;
-  }
-
-  module.exports = ListItem;
-})(jQuery);
-
-},{}]},{},[1])
-;
